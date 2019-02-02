@@ -23,7 +23,8 @@ function TimeHistogram(ctx, names, times){
     var columnHeight = 150;
     var columnSpacing = 50;
     var startPointX = 140;
-    var startPointY = 70; //240
+    var startPointY = 70;
+    var pointForNames = 240;
     var maxTimeValue = times[0].toFixed();
 
     for (var i = 0; i < times.length; i++) {
@@ -31,22 +32,22 @@ function TimeHistogram(ctx, names, times){
     }
 
     for (var i = 0; i < names.length; i++) {
-        ctx.fillStyle = "#000";
-        ctx.fillText(times[i].toFixed(), startPointX, startPointY);
-        var tempPointY = startPointY;
-        tempPointY += 20;
+        var tempPointY = startPointY + columnHeight + 16;
+        // tempPointY += 20;
         if (names[i] == 'Вы') {
             ctx.fillStyle = 'rgba(255, 0, 0, 1)';
         } else {
             ctx.fillStyle = 'rgba(0, 33, 255, ' + ( Math.random() * (1-0.1) + 0.1).toFixed(1) + ')';
         }
         var tempColumnHeight = drawingRactangle(times[i].toFixed(), maxTimeValue)
-        ctx.fillRect(startPointX, tempPointY, columnWidth, tempColumnHeight);
-        tempPointY += tempColumnHeight;
-        // alert('высота - ' + typeof tempColumnHeight);
-        // alert('поинт Y - '+tempPointY);
+        ctx.fillRect(startPointX, tempPointY, columnWidth, -tempColumnHeight);
+
+        tempPointY = startPointY - tempColumnHeight + columnHeight;
         ctx.fillStyle = "#000";
-        ctx.fillText(names[i], startPointX, tempPointY);
+        ctx.fillText(times[i].toFixed(), startPointX, tempPointY);
+
+        ctx.fillStyle = "#000";
+        ctx.fillText(names[i], startPointX, pointForNames);
         startPointX += columnWidth + columnSpacing;
     }
 }
