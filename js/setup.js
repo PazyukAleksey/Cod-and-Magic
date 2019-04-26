@@ -96,7 +96,7 @@ wizardFirebal.addEventListener('click', function(){
     wizardFirebal.style.backgroundColor = firebalColors[Math.floor(Math.random() * (firebalColors.length))];
 });
 
-
+alert('!');
 
 //создание дополнительных магов
 function createWizards() {
