@@ -53,7 +53,7 @@ setupOpen.addEventListener('keydown', function(e){ if(e.keyCode === 13) openSetu
 setupClose.addEventListener('keydown', function(e){ if(e.keyCode === 13) closeSetup();});
 
 //событие для обнаружения отправляется ли форма при нажатии кнопки
-userDialog.querySelector('.setup-submit').addEventListener('click', function(){ alert('!') });
+userDialog.querySelector('.setup-submit').addEventListener('click', function(){  });
 
 //Длинна поля setup-user-name не меньше 2 и не более 25
 userDialog.querySelector('.setup-user-name').setAttribute('maxlength', 25);
@@ -96,7 +96,6 @@ wizardFirebal.addEventListener('click', function(){
     wizardFirebal.style.backgroundColor = firebalColors[Math.floor(Math.random() * (firebalColors.length))];
 });
 
-alert('!');
 
 //создание дополнительных магов
 function createWizards() {
